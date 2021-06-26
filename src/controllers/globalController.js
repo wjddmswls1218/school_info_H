@@ -1,3 +1,5 @@
+import Student from "../models/Student";
+
 export const mainController = (req, res) => {
   res.render("global/main");
 };
@@ -17,6 +19,8 @@ export const resultController = async (req, res) => {
         },
         {}
       );
+
+      res.render("global/result", { list: studentList });
     } catch (e) {
       console.log(e);
       mainController(req, res);
